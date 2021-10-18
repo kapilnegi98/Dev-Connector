@@ -12,19 +12,28 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
-public class Like {
+public class PostLike {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	 @ManyToOne(fetch = FetchType.LAZY, optional = false)
+	 @ManyToOne(fetch = FetchType.LAZY)
 	 @JoinColumn(name = "post_id", nullable = false)
 	 private Post post;
 	 
-	 @ManyToOne(fetch = FetchType.LAZY, optional = false)
-	 @JoinColumn(name = "user_id", nullable = false)
-	 private User user;
+	 @ManyToOne(fetch = FetchType.LAZY)
+	 @JoinColumn(name = "likedByUser_id", nullable = false)
+	 private User likedByUser;
+	 public PostLike() {
+			
+		}
+
+	public PostLike(Post post, User likedByUser) {
+		
+		this.post = post;
+		this.likedByUser = likedByUser;
+	}
 
 	public Post getPost() {
 		return post;
@@ -34,12 +43,22 @@ public class Like {
 		this.post = post;
 	}
 
-	public User getUser() {
-		return user;
+
+
+	public User getLikedByUser() {
+		return likedByUser;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setLikedByUser(User likedByUser) {
+		this.likedByUser = likedByUser;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getId() {
+		return id;
 	}
 	 
 	 

@@ -7,13 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.project.devconnector.model.Comment;
-import com.project.devconnector.model.User;
+import com.project.devconnector.model.Image;
 
 @Repository
-public interface CommentRepository extends JpaRepository<Comment, Long>{
+public interface ImageRepository extends JpaRepository<Image, Long>{
 
-	@Query("select c from Comment c where c.post.id= :postId")
-	List<Comment> findCommentsByPostId(@Param("postId") Long postId);
-	
+	@Query("Select i.imageUrl from Image i where i.post.id= :postId")
+	List<String> findByPostId(@Param("postId") Long postId);
+
 }

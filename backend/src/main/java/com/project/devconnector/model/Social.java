@@ -21,6 +21,9 @@ public class Social {
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "post_id", nullable = false)
 	private Profile profile;
+public Social() {
+		
+	}
 	public String getTwitter() {
 		return twitter;
 	}

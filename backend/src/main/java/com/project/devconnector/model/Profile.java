@@ -26,7 +26,9 @@ public class Profile {
             cascade =  CascadeType.ALL,
             mappedBy = "profile")
 	private Social social;
-	
+public Profile() {
+		
+	}
 	public String getBio() {
 		return bio;
 	}

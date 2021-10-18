@@ -13,8 +13,8 @@ import com.project.devconnector.model.RoleName;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long>{
 
-	boolean existsByEmail(String email);
+	
 
-	Optional<Role> getByRoleName(RoleName roleUser);
+	Optional<Role> getByName(RoleName roleUser);
 	
 }

@@ -9,7 +9,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.devconnector.model.User;
 
 public class UserPrincipal implements UserDetails {
@@ -18,10 +17,10 @@ public class UserPrincipal implements UserDetails {
     private String name;
 
 
-    @JsonIgnore
+    
     private String email;
 
-    @JsonIgnore
+  
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;

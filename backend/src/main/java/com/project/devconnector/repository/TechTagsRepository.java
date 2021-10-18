@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.project.devconnector.model.Comment;
-import com.project.devconnector.model.User;
+
+import com.project.devconnector.model.TechTags;
 
 @Repository
-public interface CommentRepository extends JpaRepository<Comment, Long>{
+public interface TechTagsRepository extends JpaRepository<TechTags, Long>{
 
-	@Query("select c from Comment c where c.post.id= :postId")
-	List<Comment> findCommentsByPostId(@Param("postId") Long postId);
-	
+//	@Query(value = "select t from TechTags t where :postId IN t.post")
+//	List<TechTags> findTagsByPostId(@Param("postId")Long postId);
+//	
 }

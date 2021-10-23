@@ -1,12 +1,6 @@
 package com.project.devconnector.payload;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import org.springframework.web.multipart.MultipartFile;
 
 public class PostRequest {
 	
@@ -15,6 +9,19 @@ public class PostRequest {
 	private String websiteUrl;
 	private String repoUrl;
 	private String techTags;
+	public MultipartFile postImage;
+	
+	public PostRequest(String title, String description, String websiteUrl, String repoUrl, String techTags,
+			MultipartFile postImage) {
+		
+		this.title = title;
+		this.description = description;
+		this.websiteUrl = websiteUrl;
+		this.repoUrl = repoUrl;
+		this.techTags = techTags;
+		this.postImage = postImage;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -47,6 +54,17 @@ public class PostRequest {
 
 	public void setTechTags(String techTags) {
 		this.techTags = techTags;
+	}
+	
+
+
+
+	public MultipartFile getPostImage() {
+		return postImage;
+	}
+
+	public void setPostImage(MultipartFile postImage) {
+		this.postImage = postImage;
 	}
 
 	@Override

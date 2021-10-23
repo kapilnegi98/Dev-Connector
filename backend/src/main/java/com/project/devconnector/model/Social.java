@@ -18,12 +18,30 @@ public class Social {
 	private String linkedin;
 	private String codepen;
 	private String github;
-	@OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "post_id", nullable = false)
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "profile_id")
 	private Profile profile;
 public Social() {
 		
 	}
+
+	public Social(String twitter, String instagram, String linkedin, String codepen, String github) {
+	
+	this.twitter = twitter;
+	this.instagram = instagram;
+	this.linkedin = linkedin;
+	this.codepen = codepen;
+	this.github = github;
+}
+
+	public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
+
 	public String getTwitter() {
 		return twitter;
 	}

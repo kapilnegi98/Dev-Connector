@@ -9,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.project.devconnector.model.audit.DateAudit;
+
 @Entity
-public class Profile {
+public class Profile extends DateAudit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -29,6 +31,15 @@ public class Profile {
 public Profile() {
 		
 	}
+
+	public Profile(String bio, String website, String location, String githubUsername) {
+	
+	this.bio = bio;
+	this.website = website;
+	this.location = location;
+	this.githubUsername = githubUsername;
+}
+
 	public String getBio() {
 		return bio;
 	}
@@ -52,6 +63,30 @@ public Profile() {
 	}
 	public void setGithubUsername(String githubUsername) {
 		this.githubUsername = githubUsername;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Social getSocial() {
+		return social;
+	}
+
+	public void setSocial(Social social) {
+		this.social = social;
 	}
 	
 	

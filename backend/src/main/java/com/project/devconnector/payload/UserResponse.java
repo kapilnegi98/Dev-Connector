@@ -1,14 +1,16 @@
 package com.project.devconnector.payload;
 
-public class UserSummary {
+public class UserResponse {
 	private Long id;
 	private String name;
 	private String email;
-	public UserSummary(Long id, String name, String email) {
+	private String avatar;
+	public UserResponse(Long id, String name, String email, String avatar) {
 		
 		this.id = id;
 		this.name = name;
 		this.email = email;
+		this.avatar = avatar;
 	}
 	public Long getId() {
 		return id;
@@ -27,6 +29,12 @@ public class UserSummary {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 	
 }

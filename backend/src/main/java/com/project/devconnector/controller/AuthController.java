@@ -13,6 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +30,9 @@ import com.project.devconnector.payload.LoginRequest;
 import com.project.devconnector.payload.SignUpRequest;
 import com.project.devconnector.repository.RoleRepository;
 import com.project.devconnector.repository.UserRepository;
+import com.project.devconnector.security.CurrentUser;
 import com.project.devconnector.security.JwtTokenProvider;
+import com.project.devconnector.security.UserPrincipal;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -63,7 +66,7 @@ public class AuthController {
 
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
-		System.out.print("hell");
+	
 		if(userRepository.existsByEmail(signUpRequest.getEmail())){
 			return new ResponseEntity<>(new ApiResponse(false, "Email Already Exists"), HttpStatus.BAD_REQUEST);
 		}
@@ -78,8 +81,20 @@ public class AuthController {
 		URI location = ServletUriComponentsBuilder.fromCurrentContextPath()
 				.path("/users/{id}").buildAndExpand(result.getId()).toUri();
 		
-		return ResponseEntity.created(location)
-				.body(new ApiResponse(true, "User Created Successfully"));
-	}
+		Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        result.getEmail(),
+                       signUpRequest.getPassword()
+                )
+        );
 
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String jwt = tokenProvider.generateToken(authentication);
+        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+		
+//		return ResponseEntity.created(location)
+//				.body(new ApiResponse(true, "User Created Successfully"));
+	}
+	
 }

@@ -1,34 +1,27 @@
 package com.project.devconnector.payload;
 
+import java.time.Instant;
 import java.util.List;
 
-import com.project.devconnector.model.Comment;
-import com.project.devconnector.model.Image;
-import com.project.devconnector.model.Like;
-import com.project.devconnector.model.TechTags;
-import com.project.devconnector.model.User;
-
 public class PostResponse {
-	private Long postId;
+	private Long id;
 	private String title;
 	private String description;
 	private String websiteUrl;
 	private String repoUrl;
 	private List<CommentResponse> comments;
 	private List<String> images;
-	private List<Like> likes;
+	private List<LikeResponse> likes;
 	private List<String> techTags;
-	private UserSummary userSummary;
+	private UserResponse user;
+	private Instant date;
 	
-	public PostResponse() {
-		
-	}
 	
-	public PostResponse(Long postId, String title, String description, String websiteUrl, String repoUrl,
-			List<CommentResponse> comments, List<String> images, List<Like> likes, List<String> techTags,
-			UserSummary userSummary) {
-		
-		this.postId = postId;
+	public PostResponse(Long id, String title, String description, String websiteUrl, String repoUrl,
+			List<CommentResponse> comments, List<String> images, List<LikeResponse> likes, List<String> techTags,
+			UserResponse user, Instant date) {
+	
+		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.websiteUrl = websiteUrl;
@@ -37,36 +30,46 @@ public class PostResponse {
 		this.images = images;
 		this.likes = likes;
 		this.techTags = techTags;
-		this.userSummary = userSummary;
+		this.user = user;
+		this.date = date;
 	}
 
-	public Long getPostId() {
-		return postId;
+	public Long getId() {
+		return id;
 	}
-	public void setPostId(Long postId) {
-		this.postId = postId;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public String getWebsiteUrl() {
 		return websiteUrl;
 	}
+
 	public void setWebsiteUrl(String websiteUrl) {
 		this.websiteUrl = websiteUrl;
 	}
+
 	public String getRepoUrl() {
 		return repoUrl;
 	}
+
 	public void setRepoUrl(String repoUrl) {
 		this.repoUrl = repoUrl;
 	}
@@ -87,11 +90,11 @@ public class PostResponse {
 		this.images = images;
 	}
 
-	public List<Like> getLikes() {
+	public List<LikeResponse> getLikes() {
 		return likes;
 	}
 
-	public void setLikes(List<Like> likes) {
+	public void setLikes(List<LikeResponse> likes) {
 		this.likes = likes;
 	}
 
@@ -103,12 +106,20 @@ public class PostResponse {
 		this.techTags = techTags;
 	}
 
-	public UserSummary getUserSummary() {
-		return userSummary;
+	public UserResponse getUserResponse() {
+		return user;
 	}
 
-	public void setUserSummary(UserSummary userSummary) {
-		this.userSummary = userSummary;
+	public void setUserResponse(UserResponse user) {
+		this.user = user;
+	}
+
+	public Instant getDate() {
+		return date;
+	}
+
+	public void setDate(Instant date) {
+		this.date = date;
 	}
 
 	

@@ -1,10 +1,9 @@
 package com.project.devconnector.payload;
 
-public class LikeResponse {
-	
+public class FollowingResponse {
 	private Long id;
-	private UserResponse user;
-	public LikeResponse(Long id, UserResponse user) {
+	private Long user;
+	public FollowingResponse(Long id, Long user) {
 		
 		this.id = id;
 		this.user = user;
@@ -15,10 +14,10 @@ public class LikeResponse {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public UserResponse getUser() {
+	public Long getUser() {
 		return user;
 	}
-	public void setUser(UserResponse user) {
+	public void setUser(Long user) {
 		this.user = user;
 	}
 	

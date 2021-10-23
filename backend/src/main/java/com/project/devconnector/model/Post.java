@@ -15,8 +15,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.project.devconnector.model.audit.DateAudit;
+
 @Entity
-public class Post {
+public class Post extends DateAudit{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

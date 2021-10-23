@@ -1,5 +1,7 @@
 package com.project.devconnector.payload;
 
+import java.time.Instant;
+
 public class CommentResponse {
 	
 	private Long id;
@@ -7,9 +9,10 @@ public class CommentResponse {
 	private Long userId;
 	private String name;
 	private String email;
+	private Instant date;
 	
-	public CommentResponse(Long id, String text, Long userId, String name, String email) {
-		super();
+	public CommentResponse(Long id, String text, Long userId, String name, String email, Instant date) {
+	
 		this.id = id;
 		this.text = text;
 		this.userId = userId;
@@ -45,6 +48,12 @@ public class CommentResponse {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public Instant getDate() {
+		return date;
+	}
+	public void setDate(Instant date) {
+		this.date = date;
 	}
 
 }

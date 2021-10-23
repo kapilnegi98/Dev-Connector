@@ -31,9 +31,9 @@ public class User {
 	@NotBlank
 	@Size(min=6)
 	private String password;
+	private String avatar;
 	
 	@OneToOne(fetch = FetchType.LAZY,
-            cascade =  CascadeType.ALL,
             mappedBy = "user")
 	private Profile profile;
 	
@@ -51,6 +51,7 @@ public User() {
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.avatar = "www.gravatar.com/avatar/c7c1bd6b2d92d4fa6f56349e876c613c?size=200&rating=PG&default=mm";
 	}
 
 	public Long getId() {
@@ -90,6 +91,14 @@ public User() {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 
 	@Override

@@ -35,5 +35,11 @@ public String getImageUrl() {
 public void setImageUrl(String imageUrl) {
 	this.imageUrl = imageUrl;
 }
+public Post getPost() {
+	return post;
+}
+public void setPost(Post post) {
+	this.post = post;
+}
 
 }

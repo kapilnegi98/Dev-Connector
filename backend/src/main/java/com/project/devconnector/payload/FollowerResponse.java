@@ -1,10 +1,13 @@
 package com.project.devconnector.payload;
 
-public class LikeResponse {
+import javax.persistence.Entity;
+
+
+public class FollowerResponse {
 	
 	private Long id;
 	private UserResponse user;
-	public LikeResponse(Long id, UserResponse user) {
+	public FollowerResponse(Long id, UserResponse user) {
 		
 		this.id = id;
 		this.user = user;

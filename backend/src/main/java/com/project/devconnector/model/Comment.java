@@ -8,11 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+import com.project.devconnector.model.audit.DateAudit;
 
 @Entity
-public class Comment {
+public class Comment extends DateAudit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Long id;
@@ -28,6 +27,17 @@ public class Comment {
 
 	public Comment() {
 		
+	}
+
+	public Comment(String text, Post post, User user) {
+		super();
+		this.text = text;
+		this.post = post;
+		this.user = user;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Long getId() {

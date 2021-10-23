@@ -1,7 +1,7 @@
 # Dev-Connector
 Dev Connector is a portal for sharing your web projects with the world.
 ## Tech Stack
-	```bash
+	
 	FRONTEND:
 	    - JavaScript
 	    - react
@@ -15,7 +15,7 @@ Dev Connector is a portal for sharing your web projects with the world.
 	    - MySQL
 	    - Spring Security
 	    - JWT
-	```
+	
 ## Steps to Setup the Spring Boot Back end app(dev-connector backend)
 1. **Clone the application**
 
